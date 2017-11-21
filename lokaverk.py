@@ -16,6 +16,7 @@ def teningaUmbreytir(teningur):
     if teningur == 6:
         teningurVis = "⚅"
     return teningurVis
+teljari = 0
 teningur = random.randint(1,6)
 hamsturLocation = random.randint(1,75)
 rottaLocation1 = random.randint(1,100)
@@ -23,3 +24,6 @@ rottaLocation2 = random.randint(1,100)
 rottaLocation3 = random.randint(1,100)
 musLocation    = random.randint(1,75)
 print("-------Nagdýraleikur--------")
+while hamsturLocation < 100:
+    teljari = teljari + 1
+    print("ROUND",teljari)
