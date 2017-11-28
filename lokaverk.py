@@ -1,6 +1,29 @@
-#Hákon Haraldsson & Viðar Marel
-#Lokaverkefni í Forritun 2
-#21.11.2017
+# Hákon Haraldsson & Viðar Marel
+# Lokaverkefni í Forritun 2
+# 21.11.2017
+import random
+class color:
+    #teningur ætti að litast eftir hvaða karakter kastar teningunum
+    mus = "\033[1;35;40m"
+    hamstur = "\033[1;33;40m"
+    rotta1 = "\033[1;32;40m"
+    rotta2 = "\033[1;34;40m"
+    rotta3 = "\033[1;36;40m"
+
+class Nagdyr:
+    #Verður notað fyrir alla karkatera
+    def __init__(self, tegund, stadsetning, afl):
+        self.teg = tegund
+        self.stad = stadsetning
+        self.afl = afl
+aflKat = 2
+while aflKat % 2 == 0:
+    random.randint
+mus = Nagdyr("Mús", 1, random.randrange(2, 6))
+hamstur = Nagdyr("Hamstur", random.randint(1, 100), random.randrange(1, 6))
+rotta1 = Nagdyr("rotta1", random.randint(1, 100), random.randrange(1, 6))
+rotta2 = Nagdyr("rotta2", random.randint(1, 100), random.randrange(1, 6))
+rotta3 = Nagdyr("rotta3", random.randint(1, 100), random.randrange(1, 6))
 import random
 def teningaUmbreytir(teningur):
     if teningur == 1:
