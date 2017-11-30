@@ -3,7 +3,7 @@
 # 21.11.2017
 import random
 """
-class color:        #teningur ætti að litast eftir hvaða karakter kastar teningunum
+class color:
     mus = "\033[1;35;40m"
     hamstur = "\033[1;33;40m"
     rotta1 = "\033[1;32;40m"
@@ -69,40 +69,63 @@ while mus.stad < 100:
         locRot2 = rotta2.stad
         locRot3 = rotta3.stad
     currentTen = random.randint(1,6)
-    upOrDown = random.randint(1,2)
-    print("Rotta eitt kastar")
-    print("Hún fékk",teningaUmbreytir(currentTen))
-    for x in range(1,currentTen):
+    print("Hamstur kastar")
+    upOrDown = random.randint(1, 2)
+    print("Hún fékk", teningaUmbreytir(currentTen))
+    if upOrDown == 1:
+        print("Hún fer upp!")
+    else:
+        print("Hún fer niður!")
+    for x in range(1, currentTen):
         if upOrDown == 1:
-            print("Hún fer upp")
             rotta1.stad = rotta1.stad + 1
         elif upOrDown == 2:
-            print("Hún fer niður")
+            rotta1.stad = rotta1.stad - 1
+        locMus = mus.stad
+        locRot1 = rotta1.stad
+        battleDetectorV2(locMus, locHam, locRot1, locRot2, locRot3)
+    print("Rotta eitt kastar")
+    upOrDown = random.randint(1, 2)
+    print("Hún fékk",teningaUmbreytir(currentTen))
+    if upOrDown == 1:
+        print("Hún fer upp!")
+    else:
+        print("Hún fer niður!")
+    for x in range(1,currentTen):
+        if upOrDown == 1:
+            rotta1.stad = rotta1.stad + 1
+        elif upOrDown == 2:
             rotta1.stad = rotta1.stad - 1
         locMus = mus.stad
         locRot1 = rotta1.stad
         battleDetectorV2(locMus, locHam, locRot1, locRot2, locRot3)
     print("Rotta Tvö kastar")
+    upOrDown = random.randint(1, 2)
     print("Hún fékk",teningaUmbreytir(currentTen))
+    if upOrDown == 1:
+        print("Hún fer upp!")
+    else:
+        print("Hún fer niður!")
     for x in range(1,currentTen):
         if upOrDown == 1:
-            print("Hún fer upp")
             rotta2.stad = rotta2.stad + 1
         elif upOrDown == 2:
-            print("Hún fer niður")
             rotta2.stad = rotta2.stad - 1
         locMus = mus.stad
         locRot2 = rotta2.stad
         battleDetectorV2(locMus, locHam, locRot1, locRot2, locRot3)
     print("Rotta þrjú kastar")
+    upOrDown = random.randint(1, 2)
     print("Hún fékk",teningaUmbreytir(currentTen))
+    if upOrDown == 1:
+        print("Hún fer upp!")
+    else:
+        print("Hún fer niður!")
     for x in range(1,currentTen):
         if upOrDown == 1:
-            print("Hún fer upp")
-            rotta3.stad = rotta1.stad + 1
+            rotta3.stad = rotta3.stad + 1
         elif upOrDown == 2:
-            print("Hún fer niður")
-            rotta3.stad = rotta1.stad - 1
+            rotta3.stad = rotta3.stad - 1
         locMus = mus.stad
         locRot3 = rotta3.stad
         battleDetectorV2(locMus, locHam, locRot1, locRot2, locRot3)
