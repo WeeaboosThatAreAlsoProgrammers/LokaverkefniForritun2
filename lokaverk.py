@@ -10,11 +10,22 @@ class color:        #teningur ætti að litast eftir hvaða karakter kastar teni
     rotta2 = "\033[1;34;40m"
     rotta3 = "\033[1;36;40m"
 """
+def battleDetectorV2(locMus ,locHam, locRot1, locRot2, locRot3):
+    if locMus == locHam:
+        print("Hamstur Trigger")
+    if locMus == locRot1:
+        print("Rotta1 Trigger")
+    if locMus == locRot2:
+        print("Rotta2 Trigger")
+    if locMus == locRot3:
+        print("Rotta3 Trigger")
+
 class Nagdyr:   #Verður notað fyrir alla karkatera
     def __init__(self, tegund, stadsetning, afl):
         self.teg = tegund
         self.stad = stadsetning
         self.afl = afl
+
 aflKat = 1
 while aflKat % 2 == 0:
     random.randint(1,6)
@@ -42,13 +53,64 @@ print("-------Nagdýraleikur--------")
 while mus.stad < 100:
     teningur = random.randint(1, 6)
     teljari = teljari + 1
+    locHam  = 666
+    locRot1 = 666
+    locRot2 = 666
+    locRot3 = 666
     print("ROUND",teljari)
     input("kastar tening")
     currentTen = teningur
     print("Þú kastaðir",teningaUmbreytir(currentTen))
     for x in range(1,currentTen):
         mus.stad = mus.stad + 1
+        locMus = mus.stad
+        locHam = hamstur.stad
+        locRot1 = rotta1.stad
+        locRot2 = rotta2.stad
+        locRot3 = rotta3.stad
+    currentTen = random.randint(1,6)
+    upOrDown = random.randint(1,2)
+    print("Rotta eitt kastar")
+    print("Hún fékk",teningaUmbreytir(currentTen))
+    for x in range(1,currentTen):
+        if upOrDown == 1:
+            print("Hún fer upp")
+            rotta1.stad = rotta1.stad + 1
+        elif upOrDown == 2:
+            print("Hún fer niður")
+            rotta1.stad = rotta1.stad - 1
+        locMus = mus.stad
+        locRot1 = rotta1.stad
+        battleDetectorV2(locMus, locHam, locRot1, locRot2, locRot3)
+    print("Rotta Tvö kastar")
+    print("Hún fékk",teningaUmbreytir(currentTen))
+    for x in range(1,currentTen):
+        if upOrDown == 1:
+            print("Hún fer upp")
+            rotta2.stad = rotta2.stad + 1
+        elif upOrDown == 2:
+            print("Hún fer niður")
+            rotta2.stad = rotta2.stad - 1
+        locMus = mus.stad
+        locRot2 = rotta2.stad
+        battleDetectorV2(locMus, locHam, locRot1, locRot2, locRot3)
+    print("Rotta þrjú kastar")
+    print("Hún fékk",teningaUmbreytir(currentTen))
+    for x in range(1,currentTen):
+        if upOrDown == 1:
+            print("Hún fer upp")
+            rotta3.stad = rotta1.stad + 1
+        elif upOrDown == 2:
+            print("Hún fer niður")
+            rotta3.stad = rotta1.stad - 1
+        locMus = mus.stad
+        locRot3 = rotta3.stad
+        battleDetectorV2(locMus, locHam, locRot1, locRot2, locRot3)
     if mus.stad > 100:
         mus.stad = 100
-    print("músin fór áfram á reit", mus.stad)
+    print("Músin fór áfram á reit", mus.stad)
+    print("Hamstur fór áfram á reit", hamstur.stad)
+    print("Rotta eitt fór áfram á reit", rotta1.stad)
+    print("Rotta tvö fór áfram á reit", rotta2.stad)
+    print("Rotta Þrjú fór áfram á reit", rotta3.stad)
 print("Þú vannst")
